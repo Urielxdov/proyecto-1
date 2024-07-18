@@ -14,8 +14,16 @@ const initialBoard = Array.from({ length: 9 }, () => ({
 }));
 
 export function App() {
-  const [turn, setTurn] = useState(TURNS.X);
-  const [gameBoard, setGameBoard] = useState(initialBoard);
+  const [turn, setTurn] = useState(() => {
+    const turnFromLocalStorage = window.localStorage.getItem("turn");
+    return turnFromLocalStorage ? turnFromLocalStorage : TURNS.X;
+  });
+  const [gameBoard, setGameBoard] = useState(() => {
+    const boardFromLocalStorage = window.localStorage.getItem("board");
+    return boardFromLocalStorage
+      ? JSON.parse(boardFromLocalStorage)
+      : initialBoard;
+  });
   const [winner, setWinner] = useState(null);
 
   const resetBoard = () => {
@@ -31,6 +39,7 @@ export function App() {
       updateGameBoard(index);
       const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
       setTurn(newTurn);
+      window.localStorage.setItem("turn", newTurn);
     } else {
       // Aquí irá una animación de testeo
     }
@@ -42,6 +51,7 @@ export function App() {
     );
     setGameBoard(newGameBoard);
     checkWinner(newGameBoard);
+    window.localStorage.setItem("board", JSON.stringify(newGameBoard));
   };
 
   const checkWinner = (board) => {
