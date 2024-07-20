@@ -3,19 +3,9 @@ import "./App.css";
 
 export function App() {
   const users = [
-    { name: "Miguel Duran", 
-      userName: "minudev", 
-      initialIsFollow: true },
-    {
-      name: "PepeWicho Galvan",
-      userName: "Pepe Wicho",
-      initialIsFollow: false,
-    },
-    {
-      name: "Desconocido",
-      userName: "CrazyVideosOnly",
-      initialIsFollow: true
-    }
+    { name: "Miguel Duran", userName: "minudev", initialIsFollow: true },
+    { name: "PepeWicho Galvan", userName: "Pepe Wicho", initialIsFollow: false },
+    { name: "Desconocido", userName: "CrazyVideosOnly", initialIsFollow: true }
   ];
 
   return (

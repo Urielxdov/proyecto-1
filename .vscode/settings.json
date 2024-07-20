@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Usar Prettier como formateador por defecto para todos los lenguajes
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
+  ],
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Usar Prettier para JSX y TSX
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Usar Prettier para archivos .js
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Usar Prettier para archivos .json
+  },
+  "eslint.autoFixOnSave": true, // Automáticamente corregir los problemas al guardar
+  "prettier.requireConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  } // Solo formatear si hay un archivo de configuración de Prettier
+}
